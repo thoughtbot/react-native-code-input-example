@@ -8,13 +8,13 @@ import {
   Pressable,
 } from 'react-native';
 
-const CODE_DIGITS = 4;
+const CODE_LENGTH = 4;
 
 const CodeInput = () => {
   const [code, setCode] = useState('');
   const [containerIsFocused, setContainerIsFocused] = useState(false);
 
-  const codeDigitsArray = new Array(CODE_DIGITS).fill(0);
+  const codeDigitsArray = new Array(CODE_LENGTH).fill(0);
 
   const ref = useRef<TextInput>(null);
 
@@ -32,8 +32,8 @@ const CodeInput = () => {
     const digit = code[idx] || emptyInputChar;
 
     const isCurrentDigit = idx === code.length;
-    const isLastDigit = idx === CODE_DIGITS - 1;
-    const isCodeFull = code.length === CODE_DIGITS;
+    const isLastDigit = idx === CODE_LENGTH - 1;
+    const isCodeFull = code.length === CODE_LENGTH;
 
     const isFocused = isCurrentDigit || (isLastDigit && isCodeFull);
 
@@ -61,8 +61,8 @@ const CodeInput = () => {
         onSubmitEditing={handleOnBlur}
         keyboardType="number-pad"
         returnKeyType="done"
-        maxLength={4}
-        style={style.shadowCodeInput}
+        maxLength={CODE_LENGTH}
+        style={style.hiddenCodeInput}
       />
     </SafeAreaView>
   );
@@ -92,7 +92,7 @@ const style = StyleSheet.create({
     fontSize: 24,
     fontFamily: 'Menlo-Regular',
   },
-  shadowCodeInput: {
+  hiddenCodeInput: {
     position: 'absolute',
     height: 0,
     width: 0,
