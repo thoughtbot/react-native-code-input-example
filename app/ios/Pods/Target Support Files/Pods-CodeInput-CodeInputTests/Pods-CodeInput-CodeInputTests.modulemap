@@ -1,6 +1,0 @@
-module Pods_CodeInput_CodeInputTests {
-  umbrella header "Pods-CodeInput-CodeInputTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
