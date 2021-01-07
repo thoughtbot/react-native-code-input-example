@@ -61,6 +61,7 @@ const CodeInput = () => {
         onSubmitEditing={handleOnBlur}
         keyboardType="number-pad"
         returnKeyType="done"
+        textContentType="oneTimeCode"
         maxLength={CODE_LENGTH}
         style={style.hiddenCodeInput}
       />
