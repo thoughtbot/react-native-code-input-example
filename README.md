@@ -5,6 +5,15 @@ An example of a user-friendly code input in React Native.
 
 <img src="https://raw.githubusercontent.com/thoughtbot/react-native-code-input-example/main/docs/code_input.gif?token=AJMG6DTSHI3SRPGX7YYV3LTAAB2N6" alt="Four narrow inputs placed in a row. Each input accepts one number. The numpad keyboard is also displayed." width="50%" />
 
+License
+-------
+
+react-native-code-input-example is Copyright © 2021 thoughtbot. It is free
+software, and may be redistributed under the terms specified in the
+[LICENSE] file.
+
+[LICENSE]: https://github.com/thoughtbot/react-native-code-input-example/blob/main/docs/LICENSE
+
 About thoughtbot
 ----------------
 
