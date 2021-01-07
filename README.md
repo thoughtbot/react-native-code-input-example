@@ -1,4 +1,4 @@
-# react-native-code-input
+# react-native-code-input-example
 User-friendly code input in React Native.
 
 [See the component code.](https://github.com/thoughtbot/react-native-code-input/blob/main/App.tsx)
