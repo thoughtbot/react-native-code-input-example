@@ -14,7 +14,7 @@ const CodeInput = () => {
   const [code, setCode] = useState('');
   const [containerIsFocused, setContainerIsFocused] = useState(false);
 
-  const codeDigitsArray = new Array(CODE_LENGTH);
+  const codeDigitsArray = new Array(CODE_LENGTH).fill(0);
 
   const ref = useRef<TextInput>(null);
 
