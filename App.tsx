@@ -21,6 +21,7 @@ const CodeInput = () => {
   const setCodeInput = (input: string) => {
     if (input.length === 0) setCode(input);
     const last = input[input.length - 1];
+    if (last?.trim() === '') return; // ignore space, (+' ') == 0
     // make sure the input is numeric before updating
     if (+last >= 0 && +last <= 9) setCode(input);
    };
