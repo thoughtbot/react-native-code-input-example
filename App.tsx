@@ -14,9 +14,16 @@ const CodeInput = () => {
   const [code, setCode] = useState('');
   const [containerIsFocused, setContainerIsFocused] = useState(false);
 
-  const codeDigitsArray = new Array(CODE_LENGTH);
+  const codeDigitsArray = [...Array(CODE_LENGTH)];
 
   const ref = useRef<TextInput>(null);
+
+  const setCodeInput = (input: string) => {
+    if (input.length === 0) setCode(input);
+    const last = input[input.length - 1];
+    // make sure the input is numeric before updating
+    if (+last >= 0 && +last <= 9) setCode(input);
+   };
 
   const handleOnPress = () => {
     setContainerIsFocused(true);
@@ -37,10 +44,10 @@ const CodeInput = () => {
 
     const isFocused = isCurrentDigit || (isLastDigit && isCodeFull);
 
-    const containerStyle =
-      containerIsFocused && isFocused
-        ? {...style.inputContainer, ...style.inputContainerFocused}
-        : style.inputContainer;
+    const containerStyle = [
+      style.code_input_inputContainer,
+      isFocused && containerIsFocused && style.code_input_inputContainerFocused,
+    ];
 
     return (
       <View key={idx} style={containerStyle}>
@@ -57,8 +64,9 @@ const CodeInput = () => {
       <TextInput
         ref={ref}
         value={code}
-        onChangeText={setCode}
+        onChangeText={setCodeInput}
         onSubmitEditing={handleOnBlur}
+        onBlur={handleOnBlur}
         keyboardType="number-pad"
         returnKeyType="done"
         textContentType="oneTimeCode"
